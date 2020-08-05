@@ -72,8 +72,15 @@ var _ = g.Describe("[sig-cli] oc adm must-gather", func() {
 			// TODO: This got broken and we need to fix this. Disabled temporarily.
 			// {pluginOutputDir, "namespaces", "openshift-kube-apiserver", "core", "configmaps.yaml"},
 			// {pluginOutputDir, "namespaces", "openshift-kube-apiserver", "core", "secrets.yaml"},
-			{pluginOutputDir, "host_service_logs", "masters", "crio_service.log"},
-			{pluginOutputDir, "host_service_logs", "masters", "kubelet_service.log"},
+			{pluginOutputDir, "host_service_logs", "control_plane_nodes", "crio_service.log"},
+			{pluginOutputDir, "host_service_logs", "control_plane_nodes", "kubelet_service.log"},
+			{pluginOutputDir, "host_service_logs", "compute_nodes", "linux", "kubelet_service.log"},
+			{pluginOutputDir, "host_service_logs", "compute_nodes", "linux", "crio_service.log"},
+			{pluginOutputDir, "host_service_logs", "compute_nodes", "windows", "kube-proxy", "kube-proxy.exe.INFO"},
+			{pluginOutputDir, "host_service_logs", "compute_nodes", "windows", "kube-proxy", "kube-proxy.exe.ERROR"},
+			{pluginOutputDir, "host_service_logs", "compute_nodes", "windows", "kube-proxy", "kube-proxy.exe.WARNING"},
+			{pluginOutputDir, "host_service_logs", "compute_nodes", "windows", "hybrid-overlay", "hybrid-overlay.log"},
+			{pluginOutputDir, "host_service_logs", "compute_nodes", "windows", "kubelet", "kubelet.log"},
 		}
 
 		// Skip the kube and openshift apiserver audit logs on IBM ROKS clusters
